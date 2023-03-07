@@ -171,12 +171,15 @@ function FunkPlay(){
                     Hair.classList.remove("hairFunk");
                     largeEye.classList.remove('largeEyeClose');
                     smallEye.classList.remove('smallEyeClose');
-                    smallEye.classList.add('smallEyeBlink');
-                    largeEye.classList.add('largeEyeBlink');
                     exposedEar.classList.remove('exposedEarFunk');
                     coveredEar.classList.remove('coveredEarFunk');
                     cycleCount = 0;
                     clearInterval(funkTimer); 
+
+                setTimeout(() => {
+                    smallEye.classList.add('smallEyeBlink');
+                    largeEye.classList.add('largeEyeBlink');
+                        }, 100);  
                 }
             }, 708);
     
@@ -197,8 +200,12 @@ function FunkPlay(){
             Hair.classList.add("hairFunk");
             smallEye.classList.remove('smallEyeBlink');
             largeEye.classList.remove('largeEyeBlink');
-            largeEye.classList.add('largeEyeClose');
-            smallEye.classList.add('smallEyeClose');
+
+            setTimeout(() => {
+                smallEye.classList.add('smallEyeClose');
+                largeEye.classList.add('largeEyeClose');
+                    }, 100);  
+
             exposedEar.classList.add('exposedEarFunk');
             coveredEar.classList.add('coveredEarFunk');
             
@@ -226,12 +233,15 @@ function FunkPlay(){
                 Hair.classList.remove("hairFunk");
                 largeEye.classList.remove('largeEyeClose');
                 smallEye.classList.remove('smallEyeClose');
-                smallEye.classList.add('smallEyeBlink');
-                largeEye.classList.add('largeEyeBlink');
                 exposedEar.classList.remove('exposedEarFunk');
                 coveredEar.classList.remove('coveredEarFunk');
                 cycleCount = 0;
                 clearInterval(funkTimer); 
+
+                setTimeout(() => {
+                    smallEye.classList.add('smallEyeBlink');
+                    largeEye.classList.add('largeEyeBlink');
+                        }, 100);  
             }
         }, 708);
 
@@ -252,8 +262,12 @@ function FunkPlay(){
         Hair.classList.add("hairFunk");
         smallEye.classList.remove('smallEyeBlink');
         largeEye.classList.remove('largeEyeBlink');
-        largeEye.classList.add('largeEyeClose');
-        smallEye.classList.add('smallEyeClose');
+
+        setTimeout(() => {
+            smallEye.classList.add('smallEyeClose');
+            largeEye.classList.add('largeEyeClose');
+                }, 100);  
+
         exposedEar.classList.add('exposedEarFunk');
         coveredEar.classList.add('coveredEarFunk');
         
@@ -330,14 +344,17 @@ function MetalPlay(){
                     bodySVG.classList.remove('aniBodyMetal');
                     Guitar.classList.remove('guitarMetal');
                     Hair.classList.remove("hairMetal");
-                    smallEye.classList.add('smallEyeBlink');
-                    largeEye.classList.add('largeEyeBlink');
                     largeEye.classList.remove('largeEyeClose');
                     smallEye.classList.remove('smallEyeClose');
                     exposedEar.classList.remove('exposedEarMetal');
                     coveredEar.classList.remove('coveredEarMetal');
                     cycleCount = 0;
                     clearInterval(metalTimer); 
+
+                setTimeout(() => {
+                    smallEye.classList.add('smallEyeBlink');
+                    largeEye.classList.add('largeEyeBlink');
+                        }, 100);  
                 }
             }, 480);
     
@@ -353,8 +370,12 @@ function MetalPlay(){
         Hair.classList.add("hairMetal");
         smallEye.classList.remove('smallEyeBlink');
         largeEye.classList.remove('largeEyeBlink');
-        largeEye.classList.add('largeEyeClose');
-        smallEye.classList.add('smallEyeClose');
+
+                    setTimeout(() => {
+                smallEye.classList.add('smallEyeClose');
+                largeEye.classList.add('largeEyeClose');
+                    }, 100);  
+
         exposedEar.classList.add('exposedEarMetal');
         coveredEar.classList.add('coveredEarMetal');
             
@@ -379,14 +400,18 @@ function MetalPlay(){
                     bodySVG.classList.remove('aniBodyMetal');
                     Guitar.classList.remove('guitarMetal');
                     Hair.classList.remove("hairMetal");
-                    smallEye.classList.add('smallEyeBlink');
-                    largeEye.classList.add('largeEyeBlink');
                     largeEye.classList.remove('largeEyeClose');
                     smallEye.classList.remove('smallEyeClose');
                     exposedEar.classList.remove('exposedEarMetal');
                     coveredEar.classList.remove('coveredEarMetal');
                     cycleCount = 0;
                     clearInterval(metalTimer); 
+
+
+                setTimeout(() => {
+                smallEye.classList.add('smallEyeBlink');
+                largeEye.classList.add('largeEyeBlink');
+                    }, 100);  
                 }
             }, 480);
 
@@ -402,8 +427,10 @@ function MetalPlay(){
         Hair.classList.add("hairMetal");
         smallEye.classList.remove('smallEyeBlink');
         largeEye.classList.remove('largeEyeBlink');
-        largeEye.classList.add('largeEyeClose');
-        smallEye.classList.add('smallEyeClose');
+                    setTimeout(() => {
+                smallEye.classList.add('smallEyeClose');
+                largeEye.classList.add('largeEyeClose');
+                    }, 100);  
         exposedEar.classList.add('exposedEarMetal');
         coveredEar.classList.add('coveredEarMetal');
 
@@ -488,6 +515,11 @@ function ExpPlay(){
                     coveredEar.classList.remove('coveredEarExp');
                     cycleCount = 0;
                     clearInterval(expTimer); 
+
+                    setTimeout(() => {
+                        smallEye.classList.add('smallEyeBlink');
+                        largeEye.classList.add('largeEyeBlink');
+                            }, 100); 
                 }
             }, 430);
 
@@ -504,8 +536,11 @@ function ExpPlay(){
         Hair.classList.add("hairExp");
         smallEye.classList.remove('smallEyeBlink');
         largeEye.classList.remove('largeEyeBlink');
-        largeEye.classList.add('largeEyeLook');
-        smallEye.classList.add('smallEyeLook');
+
+        setTimeout(() => {
+            smallEye.classList.add('smallEyeLook');
+            largeEye.classList.add('largeEyeLook');
+                }, 100); 
         exposedEar.classList.add('exposedEarExp');
         coveredEar.classList.add('coveredEarExp');
             
@@ -528,12 +563,15 @@ function ExpPlay(){
                 bodySVG.classList.remove('aniBodyExp');
                 Guitar.classList.remove('guitarExp');
                 Hair.classList.remove("hairExp");
-                smallEye.classList.add('smallEyeBlink');
-                largeEye.classList.add('largeEyeBlink');
                 largeEye.classList.remove('largeEyeLook');
                 smallEye.classList.remove('smallEyeLook');
                 exposedEar.classList.remove('exposedEarExp');
                 coveredEar.classList.remove('coveredEarExp');
+
+                setTimeout(() => {
+                smallEye.classList.add('smallEyeBlink');
+                largeEye.classList.add('largeEyeBlink');
+                    }, 100);  
 
                 cycleCount = 0;
                     clearInterval(expTimer); 
@@ -553,8 +591,12 @@ function ExpPlay(){
         Hair.classList.add("hairExp");
         smallEye.classList.remove('smallEyeBlink');
         largeEye.classList.remove('largeEyeBlink');
-        largeEye.classList.add('largeEyeLook');
-        smallEye.classList.add('smallEyeLook');
+
+        setTimeout(() => {
+            smallEye.classList.add('smallEyeLook');
+            largeEye.classList.add('largeEyeLook');
+                }, 100);  
+
         exposedEar.classList.add('exposedEarExp');
         coveredEar.classList.add('coveredEarExp');
 
