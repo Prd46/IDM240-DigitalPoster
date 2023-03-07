@@ -1,4 +1,4 @@
-
+var clickable = true;
 
 
 
@@ -19,7 +19,7 @@ var MetalConDoc;
 var ExpConDoc;
 var FunkPlug;
 var MetalPlug;
-var ExpPlug;
+var ExpPlug; 
 var FunkClicked = false;
 var MetalClicked = false;
 var ExpClicked = false;
@@ -137,6 +137,8 @@ ExpButton.addEventListener("load", function () {
 
 
 function FunkPlay(){
+    if (clickable == true){
+        clickable = false;
     if ((MetalClicked == true) || (ExpClicked == true)){
         MetalPlug.classList.remove("pluggedIn");
         ExpPlug.classList.remove("pluggedIn");
@@ -148,64 +150,66 @@ function FunkPlay(){
         FunkPlayer.currentTime = 0;
         ExpPlayer.currentTime = 0;
         unplugSFX.play();
-        
-        headSVG.classList.remove("aniHeadFunk");
-        bodySVG.classList.remove('aniBodyFunk');
-        Guitar.classList.remove('guitarFunk');
-        Hair.classList.remove("hairFunk");
-        largeEye.classList.remove('largeEyeClose');
-        smallEye.classList.remove('smallEyeClose');
-        smallEye.classList.add('smallEyeBlink');
-        largeEye.classList.add('largeEyeBlink');
-        exposedEar.classList.remove('exposedEarFunk');
-        coveredEar.classList.remove('coveredEarFunk');
 
-        headSVG.classList.remove("aniHeadMetal");
-        bodySVG.classList.remove('aniBodyMetal');
-        Guitar.classList.remove('guitarMetal');
-        Hair.classList.remove("hairMetal");
-        exposedEar.classList.remove('exposedEarMetal');
-        coveredEar.classList.remove('coveredEarMetal');
-
-        headSVG.classList.remove("aniHeadExp");
-        bodySVG.classList.remove('aniBodyExp');
-        Guitar.classList.remove('guitarExp');
-        Hair.classList.remove("hairExp");
-        largeEye.classList.remove('largeEyeLook');
-        smallEye.classList.remove('smallEyeLook');
-        exposedEar.classList.remove('exposedEarExp');
-        coveredEar.classList.remove('coveredEarExp');
+        cycleCount = -2;
 
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('funkBump'); 
         bumper.classList.remove('expBump'); 
         bumper.classList.remove('metalBump'); 
-        
         setTimeout(() => {
+            funkTimer = setInterval(function(){
+                cycleCount ++;
+                console.log(cycleCount);
+                
+                if (cycleCount == -1){
+                    console.log('stopping animation');
+    
+                    headSVG.classList.remove("aniHeadFunk");
+                    bodySVG.classList.remove('aniBodyFunk');
+                    Guitar.classList.remove('guitarFunk');
+                    Hair.classList.remove("hairFunk");
+                    largeEye.classList.remove('largeEyeClose');
+                    smallEye.classList.remove('smallEyeClose');
+                    smallEye.classList.add('smallEyeBlink');
+                    largeEye.classList.add('largeEyeBlink');
+                    exposedEar.classList.remove('exposedEarFunk');
+                    coveredEar.classList.remove('coveredEarFunk');
+                    cycleCount = 0;
+                    clearInterval(funkTimer); 
+                }
+            }, 708);
+    
             FunkPlug.classList.add("pluggedIn");
+            MetalPlug.classList.remove("pluggedIn");
+            MetalClicked = false;
+            ExpPlug.classList.remove("pluggedIn");
+            ExpClicked = false;
             FunkPlug.classList.remove('plugHover');
+            
             plugInSFX.play();
             FunkClicked = true;
             controlText.innerHTML = "Now playing: Forget It";
-
+    
             headSVG.classList.add("aniHeadFunk");
-        bodySVG.classList.add('aniBodyFunk');
-        Guitar.classList.add('guitarFunk');
-        Hair.classList.add("hairFunk");
-        smallEye.classList.remove('smallEyeBlink');
-        largeEye.classList.remove('largeEyeBlink');
-        largeEye.classList.add('largeEyeClose');
-        smallEye.classList.add('smallEyeClose');
-        exposedEar.classList.add('exposedEarFunk');
-        coveredEar.classList.add('coveredEarFunk');
+            bodySVG.classList.add('aniBodyFunk');
+            Guitar.classList.add('guitarFunk');
+            Hair.classList.add("hairFunk");
+            smallEye.classList.remove('smallEyeBlink');
+            largeEye.classList.remove('largeEyeBlink');
+            largeEye.classList.add('largeEyeClose');
+            smallEye.classList.add('smallEyeClose');
+            exposedEar.classList.add('exposedEarFunk');
+            coveredEar.classList.add('coveredEarFunk');
             
             setTimeout(() => {
-                bumper.classList.remove('expBump'); 
-                bumper.classList.remove('metalBump'); 
-                bumper.classList.add('funkBump'); 
-                FunkPlayer.play();
-                }, 300);
-          }, 300);
+            bumper.classList.remove('expBump'); 
+            bumper.classList.remove('metalBump'); 
+            bumper.classList.add('funkBump'); 
+            FunkPlayer.play();
+            clickable = true;
+            }, 300);  
+          }, 750);
 
     }
     else if (FunkClicked == false){
@@ -252,12 +256,13 @@ function FunkPlay(){
         smallEye.classList.add('smallEyeClose');
         exposedEar.classList.add('exposedEarFunk');
         coveredEar.classList.add('coveredEarFunk');
-
+        
         setTimeout(() => {
         bumper.classList.remove('expBump'); 
         bumper.classList.remove('metalBump'); 
         bumper.classList.add('funkBump'); 
         FunkPlayer.play();
+        clickable = true;
         }, 300);
         
 
@@ -271,11 +276,15 @@ function FunkPlay(){
         FunkClicked = false;
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('funkBump'); 
-
-        cycleCount = -2
+        cycleCount = -2;
+        setTimeout(() => {
+            clickable = true;
+        }, 500);
     }
     
 };
+};
+
 
 function FunkPlugHover(){
     if (FunkClicked == false){
@@ -290,7 +299,8 @@ function FunkPlugHoverOff(){
 };
 
 function MetalPlay(){
-    
+    if (clickable == true){
+        clickable = false;
     if ((FunkClicked == true) || (ExpClicked == true)){
         FunkPlug.classList.remove("pluggedIn");
         ExpPlug.classList.remove("pluggedIn");
@@ -303,39 +313,34 @@ function MetalPlay(){
         ExpPlayer.currentTime = 0;
         unplugSFX.play();
 
+        cycleCount = -2;
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('funkBump'); 
         bumper.classList.remove('expBump'); 
         bumper.classList.remove('metalBump'); 
 
-        headSVG.classList.remove("aniHeadFunk");
-        bodySVG.classList.remove('aniBodyFunk');
-        Guitar.classList.remove('guitarFunk');
-        Hair.classList.remove("hairFunk");
-        largeEye.classList.remove('largeEyeClose');
-        smallEye.classList.remove('smallEyeClose');
-        smallEye.classList.add('smallEyeBlink');
-        largeEye.classList.add('largeEyeBlink');
-        exposedEar.classList.remove('exposedEarFunk');
-        coveredEar.classList.remove('coveredEarFunk');
-
-        headSVG.classList.remove("aniHeadMetal");
-        bodySVG.classList.remove('aniBodyMetal');
-        Guitar.classList.remove('guitarMetal');
-        Hair.classList.remove("hairMetal");
-        exposedEar.classList.remove('exposedEarMetal');
-        coveredEar.classList.remove('coveredEarMetal');
-
-        headSVG.classList.remove("aniHeadExp");
-        bodySVG.classList.remove('aniBodyExp');
-        Guitar.classList.remove('guitarExp');
-        Hair.classList.remove("hairExp");
-        largeEye.classList.remove('largeEyeLook');
-        smallEye.classList.remove('smallEyeLook');
-        exposedEar.classList.remove('exposedEarExp');
-        coveredEar.classList.remove('coveredEarExp');
-        
         setTimeout(() => {
+            metalTimer = setInterval(function(){
+                cycleCount ++;
+                console.log(cycleCount);
+    
+                if (cycleCount == -1){
+                    console.log('stopping animation');
+                    headSVG.classList.remove("aniHeadMetal");
+                    bodySVG.classList.remove('aniBodyMetal');
+                    Guitar.classList.remove('guitarMetal');
+                    Hair.classList.remove("hairMetal");
+                    smallEye.classList.add('smallEyeBlink');
+                    largeEye.classList.add('largeEyeBlink');
+                    largeEye.classList.remove('largeEyeClose');
+                    smallEye.classList.remove('smallEyeClose');
+                    exposedEar.classList.remove('exposedEarMetal');
+                    coveredEar.classList.remove('coveredEarMetal');
+                    cycleCount = 0;
+                    clearInterval(metalTimer); 
+                }
+            }, 480);
+    
             MetalPlug.classList.add("pluggedIn");
             MetalPlug.classList.remove('plugHover');
             plugInSFX.play();
@@ -352,16 +357,15 @@ function MetalPlay(){
         smallEye.classList.add('smallEyeClose');
         exposedEar.classList.add('exposedEarMetal');
         coveredEar.classList.add('coveredEarMetal');
-    
-        setTimeout(() => {
-            bumper.classList.remove('expBump'); 
-            bumper.classList.add('metalBump'); 
-            bumper.classList.remove('funkBump'); 
-           MetalPlayer.play();
-            }, 240);
             
-            
-          }, 300);
+            setTimeout(() => {
+                bumper.classList.remove('expBump'); 
+                bumper.classList.add('metalBump'); 
+                bumper.classList.remove('funkBump'); 
+               MetalPlayer.play();
+               clickable = true;
+                }, 240);    
+          }, 750);
 
          }else if (MetalClicked == false){
 
@@ -408,6 +412,7 @@ function MetalPlay(){
             bumper.classList.add('metalBump'); 
             bumper.classList.remove('funkBump'); 
            MetalPlayer.play();
+           clickable = true;
             }, 240);
 
     } else if (MetalClicked == true){
@@ -420,10 +425,13 @@ function MetalPlay(){
         MetalClicked = false;
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('metalBump'); 
-
         cycleCount = -2;
+        setTimeout(() => {
+            clickable = true;
+        }, 500);
     }
     
+};
 };
 
 function MetalPlugHover(){
@@ -440,6 +448,8 @@ function MetalPlugHoverOff(){
 
 
 function ExpPlay(){
+    if (clickable == true){
+        clickable = false;
     if ((FunkClicked == true) || (MetalClicked == true)){
         FunkPlug.classList.remove("pluggedIn");
         MetalPlug.classList.remove("pluggedIn");
@@ -451,41 +461,36 @@ function ExpPlay(){
         ExpPlayer.currentTime = 0;
         FunkPlayer.pause();
         unplugSFX.play();
-
-        headSVG.classList.remove("aniHeadFunk");
-        bodySVG.classList.remove('aniBodyFunk');
-        Guitar.classList.remove('guitarFunk');
-        Hair.classList.remove("hairFunk");
-        largeEye.classList.remove('largeEyeClose');
-        smallEye.classList.remove('smallEyeClose');
-        smallEye.classList.add('smallEyeBlink');
-        largeEye.classList.add('largeEyeBlink');
-        exposedEar.classList.remove('exposedEarFunk');
-        coveredEar.classList.remove('coveredEarFunk');
-
-        headSVG.classList.remove("aniHeadMetal");
-        bodySVG.classList.remove('aniBodyMetal');
-        Guitar.classList.remove('guitarMetal');
-        Hair.classList.remove("hairMetal");
-        exposedEar.classList.remove('exposedEarMetal');
-        coveredEar.classList.remove('coveredEarMetal');
-
-        headSVG.classList.remove("aniHeadExp");
-        bodySVG.classList.remove('aniBodyExp');
-        Guitar.classList.remove('guitarExp');
-        Hair.classList.remove("hairExp");
-        largeEye.classList.remove('largeEyeLook');
-        smallEye.classList.remove('smallEyeLook');
-        exposedEar.classList.remove('exposedEarExp');
-        coveredEar.classList.remove('coveredEarExp');
-
         
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('funkBump'); 
         bumper.classList.remove('expBump'); 
         bumper.classList.remove('metalBump'); 
-        
+   
+
+        cycleCount = -2;
+
         setTimeout(() => {
+            expTimer = setInterval(function(){
+                cycleCount ++;
+                console.log(cycleCount);
+    
+                if (cycleCount == -1){
+                    console.log('stopping animation');
+
+                    headSVG.classList.remove("aniHeadExp");
+                    bodySVG.classList.remove('aniBodyExp');
+                    Guitar.classList.remove('guitarExp');
+                    Hair.classList.remove("hairExp");
+                    largeEye.classList.remove('largeEyeLook');
+                    smallEye.classList.remove('smallEyeLook');
+                    exposedEar.classList.remove('exposedEarExp');
+                    coveredEar.classList.remove('coveredEarExp');
+                    cycleCount = 0;
+                    clearInterval(expTimer); 
+                }
+            }, 430);
+
             ExpPlug.classList.add("pluggedIn");
             ExpPlug.classList.remove('plugHover');
             
@@ -503,16 +508,15 @@ function ExpPlay(){
         smallEye.classList.add('smallEyeLook');
         exposedEar.classList.add('exposedEarExp');
         coveredEar.classList.add('coveredEarExp');
-
-                    setTimeout(() => {
-            ExpPlayer.play();
-            bumper.classList.add('expBump'); 
-            bumper.classList.remove('metalBump'); 
-            bumper.classList.remove('funkBump'); 
-            ExpPlayer.play();
-            }, 215);
-
-          }, 300);
+            
+            setTimeout(() => {
+                bumper.classList.add('expBump'); 
+                bumper.classList.remove('metalBump'); 
+                bumper.classList.remove('funkBump'); 
+               ExpPlayer.play();
+               clickable = true;
+                }, 215);    
+          }, 750);
 
          }else if (ExpClicked == false){
 
@@ -559,6 +563,7 @@ function ExpPlay(){
             bumper.classList.remove('metalBump'); 
             bumper.classList.remove('funkBump'); 
             ExpPlayer.play();
+            clickable = true;
             }, 215);
 
     } else if (ExpClicked == true){
@@ -572,9 +577,13 @@ function ExpPlay(){
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('expBump'); 
 
-        cycleCount = -2
+        cycleCount = -2;
+        setTimeout(() => {
+            clickable = true;
+        }, 500);
     }
     
+};
 };
 
 function ExpPlugHover(){

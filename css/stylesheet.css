@@ -12,7 +12,7 @@ body{
     justify-content: center;
     align-content: center;
     overflow-x: hidden;
-}
+} 
 .bodyContainer{
     margin: 0 auto;
     width: 1280px;
@@ -683,7 +683,7 @@ a{
 
 /*Eye animations*/
 .largeEyeClose{
-    transition: all 1s ease-out;
+    transition: all .3s ease-out;
     transform: scale(5, .1);
 }
 .smallEyeClose{
@@ -693,13 +693,13 @@ a{
 .smallEyeLook{
     transform: translate(-.5rem, .7rem)
     scale(.5, 2);
-    transition: all .1s ease-out;
+    transition: all .3s ease-out;
     transform-origin: 33% 24.5%;
 }
 .largeEyeLook{
     transform: translate(-1.3rem, .7rem)
     scale(.5, 2);
-    transition: all .1s ease-out;
+    transition: all .3s ease-out;
     transform-origin: 40% 24.5%;
 }
 
