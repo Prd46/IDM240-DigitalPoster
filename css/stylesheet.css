@@ -1,0 +1,847 @@
+body{
+    background-image: url("../PNG/scubbybackground.png");
+    margin: 0 auto;
+    background-attachment: fixed;
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: static;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    overflow-x: hidden;
+}
+.bodyContainer{
+    margin: 0 auto;
+    width: 1280px;
+    height: 900px;
+    padding: 1rem;
+}
+@font-face {
+    font-family: 'staatliches';
+    src: url('../fonts/staatliches-regular-webfont.woff2') format('woff2'),
+         url('../fonts/staatliches-regular-webfont.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'oswald';
+    src: url('../fonts/oswald-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/oswald-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Inika';
+    src: url('../fonts/inika-regular-webfont.woff2') format('woff2'),
+        url('../fonts/inika-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+h1{
+    font-family: 'staatliches', Arial, Helvetica, sans-serif; 
+    color: rgb(254,255,203);
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    margin: 0;
+    font-weight: 100;
+}
+h2{
+    font-family: 'staatliches', Arial, Helvetica, sans-serif; 
+    color: rgb(254,255,203);
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    margin: 0;
+    font-weight: 100;
+}
+h3{
+    font-family: 'oswald', Arial, Helvetica, sans-serif; 
+    color: rgb(254,255,203);
+    font-size: 1.5rem;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    margin: .5rem 0;
+    text-align: left;
+    width: 100%;
+}
+a{
+    color: black;
+}
+p{
+    font-family: 'oswald', Arial, Helvetica, sans-serif; 
+    
+}
+
+section{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.svgContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-self: center;
+}
+
+@keyframes musicPulse {
+    0%{
+        transform: scale(1.0, 1.0);
+    }
+    2%{
+        transform: scale(1.2, 1.2);
+    }
+    5%{
+        transform: scale(1.0, 1.0);
+    }
+    9%{
+        transform: scale(1.13, 1.13);
+    }
+    15%{
+        transform: scale(1.1, 1.1);
+    }
+
+    50%{
+        transform: scale(1.0, 1.0);
+    }
+}
+#speakerBump{
+    transform-origin: 50% 45%;
+    transition: all .1s ease-out;
+}
+.funkBump{
+    animation: musicPulse .7083s .7083s infinite;
+    transition: all .1s ease-out;
+}
+.metalBump{
+    animation: musicPulse .48s .48s infinite;
+    transition: all .1s ease-out;
+}
+.expBump{
+    animation: musicPulse .43s .4289s infinite;
+    transition: all .1s ease-out;
+}
+
+#largeEye{
+    transition: all 1s ease-out;
+
+}
+
+#smallEye{
+    transition: all 1s ease-out;
+    }
+
+.logoImageContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.logoImage{
+    width: 25rem;
+    padding: 2rem;
+}
+a{
+    color: rgb(35, 19, 3);
+    text-decoration: underline;
+}
+.plugBox{
+    flex-direction: column;
+    display: flex;
+    /*border: solid 5px black;*/
+}
+.musicControls{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: 5rem;
+    width: 100%;
+    text-align: right;
+    margin: 1rem;
+    /*border: solid 5px black;*/
+}
+.textCorrection{
+    width: 25rem;
+    padding: 3rem;
+}
+.controlText{
+    text-align: left;
+}
+#Ani{
+    top: 3rem;
+    position: absolute;
+    width: 850px;
+    height: 850px;
+}
+#smallEye{
+    transition: all .1s ease-out;
+    transform-origin: 33% 24.5%;
+}
+#largeEye{
+    transition: all .1s ease-out;
+    transform-origin: 40% 24.5%;
+}
+.songLinks{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    margin: 0 2rem;
+    z-index: 100;
+}
+#FunkRockImage{
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+#FunkRockPlug{
+    transition: all .2s ease-out;
+}
+#MetalPlug{
+    transition: all .2s ease-out;
+}
+#ExperimentalPlug{
+    transition: all .2s ease-out;
+}
+#FunkRockSocket{
+    z-index: 10;
+    cursor: pointer;
+}
+#MetalSocket{
+    z-index: 10;
+    cursor: pointer;
+}
+#ExperimentalSocket{
+    z-index: 10;
+    cursor: pointer;
+}
+.plugHover{
+    cursor: pointer;
+    transform: translate(1rem, 0);
+    transition: all .3s ease-out;
+}
+.pluggedIn{
+    transform: translate(-7rem, 0);
+    transition: all .3s ease-out;
+    
+}
+#FunkPlugDiv{
+    z-index: 15;
+}
+@media screen and (max-width: 1279px){
+    body{
+        width: 768px;
+        height: 90%;
+        padding: 1rem;
+        overflow-y: visible;
+    }
+    .bodyContainer{
+    margin: 0 auto;
+    width: 768px;
+    height: 1024px;
+    padding: 1rem;
+    }
+    #Ani{
+        top: 15rem;
+       width: 700px;
+       height: 700px;
+    }
+    .logoImage{
+        width: 20rem;
+        padding: 0rem;
+    }
+    .logoImageContainer{
+        display: flex;
+        justify-content: flex-start;
+        width: 10%;
+    }
+    .musicControls{
+        position: relative;
+        top: -16rem;
+        left: 48rem;
+        width: 10rem;
+        padding: 2rem;
+        align-items: flex-end;
+    }
+    .songLinks{
+        position: relative;
+        top: -10rem;
+        right: 4rem;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        z-index: 100;
+    }
+    #Amp{
+        position: relative;
+        right: 17rem;
+        top: 31rem;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    h2{
+        font-size: 1.5rem;
+    }
+    .controlText{
+        text-align: right;
+        font-size: 1.3rem;
+    }
+    .controlTextOutput{
+        text-align: right;
+        font-size: 1.3rem;
+    }
+    .plugClass{
+        width: 20rem;
+        height: 2.5rem;
+    }
+
+}
+
+/*Play animations*/
+/*Idle*/
+
+@keyframes idleRock{
+    0%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(-1deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes headCounter{
+    0%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(1deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes guitarIdle {
+    0%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(.5deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes hairBobble {
+    0%{
+        transform: rotate(0deg);
+    }25%{
+        transform: rotate(.5deg);
+    }50%{
+        transform: rotate(0deg);
+    }75%{
+        transform: rotate(-.5deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+
+
+/*Active*/
+
+@keyframes headbangBody{
+    0%{
+        transform: rotate(0deg);
+    }10%{
+        transform: rotate(-.05deg);
+    }
+    20%{
+        transform: rotate(-.15deg);
+    }
+    30%{
+        transform: rotate(-.5deg);
+    }
+    40%{
+        transform: rotate(-1deg);
+    }50%{
+        transform: rotate(-.6deg);
+    }
+    60%{
+        transform: rotate(-.4deg);
+    }
+    70%{
+        transform: rotate(-.2deg);
+    }80%{
+        transform: rotate(-.1deg);
+    }90%{
+        transform: rotate(-.05deg);
+    }100%{
+        transform: rotate(-.02deg);
+    }
+}
+
+@keyframes headbangHead{
+    0%{
+        transform: rotate(0deg)
+        translateY(0rem)
+        translateX(0rem);
+    }10%{
+        transform: rotate(-.2deg)
+        translateY(.1rem)
+        translateX(-.05rem);
+    }
+    20%{
+        transform: rotate(-.7deg)
+        translateY(.3rem)
+        translateX(-.15rem);
+    }
+    30%{
+        transform: rotate(-2deg)
+        translateY(.8rem)
+        translateX(-.3rem);
+    }
+    40%{
+        transform: rotate(-4deg)
+        translateY(1.2rem)
+        translateX(-.5rem);
+    }50%{
+        transform: rotate(-6deg)
+        translateY(1.7rem)
+        translateX(-.7rem);
+    }
+    60%{
+        transform: rotate(-6.5deg)
+        translateY(1.5rem)
+        translateX(-.8rem);
+    }
+    70%{
+        transform: rotate(-4deg)
+        translateY(.9rem)
+        translateX(-.7rem);
+    }80%{
+        transform: rotate(-2deg)
+        translateY(.5rem)
+        translateX(-.4rem);
+    }90%{
+        transform: rotate(-1deg)
+        translateY(.2rem)
+        translateX(-.2rem);
+    }100%{
+        transform: rotate(-.3deg)
+        translateY(.01rem)
+        translateX(-.01rem);
+    }
+}
+
+@keyframes headbangHair{
+    0%{
+        transform: rotate(0deg);
+    }10%{
+        transform: rotate(.5deg);
+    }
+    20%{
+        transform: rotate(2deg);
+    }
+    30%{
+        transform: rotate(4deg);
+    }
+    40%{
+        transform: rotate(6deg);
+    }50%{
+        transform: rotate(4deg);
+    }
+    60%{
+        transform: rotate(2deg);
+    }
+    70%{
+        transform: rotate(0deg);
+    }80%{
+        transform: rotate(-2deg);
+    }90%{
+        transform: rotate(-1deg);
+    }100%{
+        transform: rotate(-.1deg);
+    }
+}
+
+@keyframes headbangExposedEar{
+    0%{
+        transform: rotate(0deg);
+    }10%{
+        transform: rotate(-1deg);
+    }
+    20%{
+        transform: rotate(-2deg);
+    }
+    30%{
+        transform: rotate(-5deg);
+    }
+    40%{
+        transform: rotate(-6deg);
+    }50%{
+        transform: rotate(-3deg);
+    }
+    60%{
+        transform: rotate(0deg);
+    }
+    70%{
+        transform: rotate(2deg);
+    }80%{
+        transform: rotate(4deg);
+    }90%{
+        transform: rotate(2.5deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes headbangCoveredEar{
+    0%{
+        transform: rotate(0deg);
+    }10%{
+        transform: rotate(.6deg);
+    }
+    20%{
+        transform: rotate(1.5deg);
+    }
+    30%{
+        transform: rotate(2.3deg);
+    }
+    40%{
+        transform: rotate(4deg);
+    }50%{
+        transform: rotate(2deg);
+    }
+    60%{
+        transform: rotate(0deg);
+    }
+    70%{
+        transform: rotate(-1deg);
+    }80%{
+        transform: rotate(-3.5deg);
+    }90%{
+        transform: rotate(-1.5deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes largeBlink{
+    0%{
+        transform: scale(1, 1);
+    }90%{
+        transform: scale(1, 1);
+    }90.5%{
+        transform: scale(5, .1);
+    }91%{
+        transform: scale(1, 1);
+    }100%{
+        transform: scale(1, 1);
+    }
+}
+@keyframes smallBlink{
+    0%{
+        transform: scale(1, 1);
+    }90%{
+        transform: scale(1, 1);
+    }90.5%{
+        transform: scale(5, .1);
+    }91%{
+        transform: scale(1, 1);
+    }100%{
+        transform: scale(1, 1);
+    }
+}
+
+
+#Ani #Body{
+    
+    transform-origin: 60% 60%;
+}
+#Ani #Head{
+
+    transform-origin: 30% 30%;
+}
+#Guitar{
+
+    transform-origin: 0 70%;
+}
+#Hair{
+
+    transform-origin: 40% 0%;
+}
+
+/*Idle Animations*/
+.bodyIdle{
+    animation: idleRock 3.5s ease-in-out infinite;
+}
+.headIdle{
+    animation: headCounter 3.5s ease-in-out infinite;
+}
+.guitarIdle{
+    animation: guitarIdle 3.5s ease-in-out infinite;
+}
+.hairIdle{
+    animation: hairBobble 3.5s linear infinite;
+}
+.largeEyeBlink{
+    animation: largeBlink 8s linear infinite;
+}
+.smallEyeBlink{
+    animation: smallBlink 8s linear infinite;
+}
+
+
+
+/*Funk Animations*/
+.aniBodyFunk{
+    animation: headbangBody .7083s linear infinite;
+    transform-origin: 60% 60%;
+}
+.aniHeadFunk{
+    animation: headbangHead .7083s linear infinite;
+    transform-origin: 30% 30%;
+}
+.guitarFunk{
+    animation: guitarIdle .7083s ease-in-out infinite;
+    transform-origin: 0 70%;
+}
+.hairFunk{
+    animation: headbangHair .7083s linear infinite;
+    transform-origin: 40% 0%;
+}
+
+.exposedEarFunk{
+    animation: headbangExposedEar .7083s linear infinite;
+    transform-origin: 40% 15%;
+}
+.coveredEarFunk{
+    animation: headbangCoveredEar .7083s linear infinite;
+    transform-origin: 40% 15%;
+}
+
+
+
+
+/*Metal Animations*/
+.aniBodyMetal{
+    animation: headbangBody .48s linear infinite;
+    transform-origin: 60% 60%;
+}
+.aniHeadMetal{
+    animation: headbangHead .48s linear infinite;
+    transform-origin: 30% 30%;
+}
+.guitarMetal{
+    animation: guitarIdle .48s ease-in-out infinite;
+    transform-origin: 0 70%;
+}
+.hairMetal{
+    animation: headbangHair .48s linear infinite;
+    transform-origin: 40% 0%;
+}
+
+.exposedEarMetal{
+    animation: headbangExposedEar .48s linear infinite;
+    transform-origin: 40% 15%;
+}
+.coveredEarMetal{
+    animation: headbangCoveredEar .48s linear infinite;
+    transform-origin: 40% 15%;
+}
+
+
+
+/*Exp Animations*/
+.aniBodyExp{
+    animation: headbangBody .43s linear infinite;
+    transform-origin: 60% 60%;
+}
+.aniHeadExp{
+    animation: headbangHead .43s linear infinite;
+    transform-origin: 30% 30%;
+}
+.guitarExp{
+    animation: guitarIdle .43s ease-in-out infinite;
+    transform-origin: 0 70%;
+}
+.hairExp{
+    animation: headbangHair .43s linear infinite;
+    transform-origin: 40% 0%;
+}
+
+.exposedEarExp{
+    animation: headbangExposedEar .43s linear infinite;
+    transform-origin: 40% 15%;
+}
+.coveredEarExp{
+    animation: headbangCoveredEar .43s linear infinite;
+    transform-origin: 40% 15%;
+}
+
+
+
+/*Eye animations*/
+.largeEyeClose{
+    transition: all 1s ease-out;
+    transform: scale(5, .1);
+}
+.smallEyeClose{
+    transform: scale(5, .1);
+    transition: all 1s ease-out;
+}
+.smallEyeLook{
+    transform: translate(-.5rem, .7rem)
+    scale(.5, 2);
+    transition: all .1s ease-out;
+    transform-origin: 33% 24.5%;
+}
+.largeEyeLook{
+    transform: translate(-1.3rem, .7rem)
+    scale(.5, 2);
+    transition: all .1s ease-out;
+    transform-origin: 40% 24.5%;
+}
+
+@media screen and (max-width: 767px){
+    .logoAndText{
+        display: flex;
+        align-items: center;
+    }
+    .aniDiv{
+        position: absolute;
+        width: 90%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    #Ani{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        width: 90%;
+        top: 24rem;
+       left: 0rem;
+  
+       margin: 0 auto;
+    }
+    .logoImageContainer{
+        width: 100%;
+        padding: 0rem;
+        display: flex;
+        justify-content: center;
+    }
+    body{
+        width: 95%;
+        padding: 0;
+    }
+    .bodyContainer{
+        margin: 0;
+        width: 100%;
+        padding: 1rem;
+        }
+        .controlText{
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .controlTextOutput{
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .textCorrection{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+            margin: 0 auto;
+        }
+        .plugBox{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .musicControls{
+            flex-direction: column;
+            position: relative;
+            top: 0rem;
+            left: 0rem;
+            width: 95%;
+            padding: 1rem;
+            margin: 0;
+            align-items: flex-end;
+        }
+        .songLinks{
+            position: relative;
+            top: 0;
+            margin: 0;
+            right: 0rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            z-index: 100;
+        }
+        #Amp{
+            position: relative;
+                right: 0rem;
+                top: 20rem;
+                width: 40%;
+        }
+    }
+    @media screen and (max-width: 650px){
+        #Ani{
+            top: 27rem;
+        }
+        #Amp{
+            top: 14rem;
+        }
+        .logoAndText{
+            display: block;
+        }
+    }
+    @media screen and (max-width: 550px){
+        #Ani{
+            top: 25rem;
+        }
+        #Amp{
+            top: 12rem;
+        }
+    }
+    @media screen and (max-width: 500px){
+        #Ani{
+            top: 23rem;
+        }
+        #Amp{
+            top: 10rem;
+        }
+    }
+    @media screen and (max-width: 400px){
+        #Ani{
+            top: 21rem;
+        }
+        #Amp{
+            top: 6rem;
+        }
+    }
+    @media screen and (max-width: 350px){
+        #Ani{
+            top: 18rem;
+        }
+        #Amp{
+            top: 4rem;
+        }
+        .musicControls{
+            padding: .8rem;
+        }
+        .controlText{
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        .controlTextOutput{
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    }
