@@ -387,51 +387,52 @@ a{
         translateX(0rem);
     }10%{
         transform: rotate(-.2deg)
-        translateY(.1rem)
-        translateX(-.05rem);
+        translateY(.05rem)
+        translateX(-.025rem);
     }
     20%{
         transform: rotate(-.7deg)
-        translateY(.3rem)
-        translateX(-.15rem);
+        translateY(.15rem)
+        translateX(-.075rem);
     }
     30%{
         transform: rotate(-2deg)
-        translateY(.8rem)
-        translateX(-.3rem);
+        translateY(.4rem)
+        translateX(-.15rem);
     }
     40%{
         transform: rotate(-4deg)
-        translateY(1.2rem)
-        translateX(-.5rem);
+        translateY(.6rem)
+        translateX(-.25rem);
     }50%{
         transform: rotate(-6deg)
-        translateY(1.7rem)
-        translateX(-.7rem);
+        translateY(.85rem)
+        translateX(-.35rem);
     }
     60%{
         transform: rotate(-6.5deg)
-        translateY(1.5rem)
-        translateX(-.8rem);
+        translateY(.75rem)
+        translateX(-.4rem);
     }
     70%{
         transform: rotate(-4deg)
-        translateY(.9rem)
-        translateX(-.7rem);
+        translateY(.45rem)
+        translateX(-.35rem);
     }80%{
         transform: rotate(-2deg)
-        translateY(.5rem)
-        translateX(-.4rem);
+        translateY(.25rem)
+        translateX(-.2rem);
     }90%{
         transform: rotate(-1deg)
-        translateY(.2rem)
-        translateX(-.2rem);
+        translateY(.1rem)
+        translateX(-.1rem);
     }100%{
         transform: rotate(-.3deg)
         translateY(.01rem)
         translateX(-.01rem);
     }
 }
+
 
 @keyframes headbangHair{
     0%{
@@ -691,16 +692,32 @@ a{
     transition: all 1s ease-out;
 }
 .smallEyeLook{
-    transform: translate(-.5rem, .7rem)
+    transform: translate(-.15rem, .28rem)
     scale(.5, 2);
-    transition: all .3s ease-out;
+    transition: all .1s ease-out;
     transform-origin: 33% 24.5%;
 }
 .largeEyeLook{
-    transform: translate(-1.3rem, .7rem)
+    transform: translate(-.5rem, .28rem)
     scale(.5, 2);
-    transition: all .3s ease-out;
+    transition: all .1s ease-out;
     transform-origin: 40% 24.5%;
+}
+
+/*Playing animations*/
+
+@keyframes strumAlt{
+    0%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(50deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+#strumHand{
+    animation: strumAlt .5s cubic-bezier(.1,1.1,.49,.95) infinite;
+    transform-origin: 10% 40%;
 }
 
 @media screen and (max-width: 767px){

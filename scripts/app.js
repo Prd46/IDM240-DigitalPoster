@@ -13,7 +13,7 @@ ExpPlayer.volume = .3
 plugInSFX.volume = .3
 unplugSFX.volume = .3
 
-
+ 
 var FunkConDoc;
 var MetalConDoc;
 var ExpConDoc;
@@ -29,6 +29,9 @@ var largeEye;
 var bodySVG;
 var headSVG;
 var Guitar;
+var strumHand;
+var fretHand;
+
 var Ani = document.getElementById("Ani");
 var Hair; 
 var aniConDoc
@@ -44,8 +47,11 @@ Ani.addEventListener("load", function () {
     headSVG = aniConDoc.getElementById('Head');
     Guitar = aniConDoc.getElementById('Guitar')
     Hair = aniConDoc.getElementById('Hair');
+    strumHand = aniConDoc.getElementById('strumHand');
+    fretHand = aniConDoc.getElementById('fretHand');
     exposedEar = aniConDoc.getElementById('exposedEar');
     coveredEar = aniConDoc.getElementById('coveredEar');
+
     // put SVG hand ID into a JS variable
     smallEye.classList.add('smallEyeBlink');
     largeEye.classList.add('largeEyeBlink');
@@ -60,25 +66,6 @@ var funkTimer;
 var metalTimer;
 var expTimer;
 var cycleCount = 0; 
-
-/*
-var inverval_timer;
-
-//Time in milliseconds [1 second = 1000 milliseconds ]    
-inverval_timer = setInterval(function() { 
-    console.log("5 seconds completed");
-}, 5000);
-    
-//IF you want to stop above timer
-function stop_timer() {
-    clearInterval(inverval_timer); 
-}
-
-
-LOOP THROUGH AND INCREASE A NUMBER FOR ANIMATION LOOPS
-AFTER PLUG IS PULLED, ADD AN EVENT LISTENER FOR NUMBER CHANGED
-IF NUMBER IS CHANGED, REMOVE CLASSES
-*/
 
 
 var speaker = document.getElementById('Amp');
