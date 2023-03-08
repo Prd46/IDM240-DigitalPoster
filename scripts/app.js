@@ -67,6 +67,31 @@ var metalTimer;
 var expTimer;
 var cycleCount = 0; 
 
+function fret(){
+
+}
+// SONG STRUMMING PATTERNS
+var expTimes = [0, 215, 323, 645, 860, 968, 1290, 1505, 1613, 1935, 2150, 2258, 2580, 2795, 2903, 3225, 3400, 3508, 3870];
+function expStrumPattern(strumArray){
+
+    function strum(){
+        if (strumHand.style.transform == "rotate(50deg)"){
+            strumHand.style.transform = "rotate(0deg)";
+        }else{
+            strumHand.style.transform = "rotate(50deg)";
+        }
+    }    
+    strumArray.forEach(delay => { 
+        setTimeout(() => {
+            if (ExpClicked == true){
+            strum();
+              }else{
+                return;
+              };
+        }, delay);
+    });
+}
+
 
 var speaker = document.getElementById('Amp');
 var bumper
@@ -480,7 +505,7 @@ function ExpPlay(){
         bumper.classList.remove('funkBump'); 
         bumper.classList.remove('expBump'); 
         bumper.classList.remove('metalBump'); 
-   
+        
 
         cycleCount = -2;
 
@@ -523,7 +548,6 @@ function ExpPlay(){
         Hair.classList.add("hairExp");
         smallEye.classList.remove('smallEyeBlink');
         largeEye.classList.remove('largeEyeBlink');
-
         setTimeout(() => {
             smallEye.classList.add('smallEyeLook');
             largeEye.classList.add('largeEyeLook');
@@ -537,6 +561,7 @@ function ExpPlay(){
                 bumper.classList.remove('funkBump'); 
                ExpPlayer.play();
                clickable = true;
+            //    expStrumPattern(expTimes);
                 }, 215);    
           }, 750);
 
@@ -554,6 +579,7 @@ function ExpPlay(){
                 smallEye.classList.remove('smallEyeLook');
                 exposedEar.classList.remove('exposedEarExp');
                 coveredEar.classList.remove('coveredEarExp');
+
 
                 setTimeout(() => {
                 smallEye.classList.add('smallEyeBlink');
@@ -578,7 +604,6 @@ function ExpPlay(){
         Hair.classList.add("hairExp");
         smallEye.classList.remove('smallEyeBlink');
         largeEye.classList.remove('largeEyeBlink');
-
         setTimeout(() => {
             smallEye.classList.add('smallEyeLook');
             largeEye.classList.add('largeEyeLook');
@@ -593,6 +618,7 @@ function ExpPlay(){
             bumper.classList.remove('funkBump'); 
             ExpPlayer.play();
             clickable = true;
+            // expStrumPattern(expTimes);
             }, 215);
 
     } else if (ExpClicked == true){
@@ -605,6 +631,7 @@ function ExpPlay(){
         ExpClicked = false;
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('expBump'); 
+
 
         cycleCount = -2;
         setTimeout(() => {

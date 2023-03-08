@@ -148,6 +148,11 @@ section{
 a{
     color: rgb(35, 19, 3);
     text-decoration: underline;
+    transition: all .1s ease-in-out;
+}
+.linkText:hover{
+    color: white;
+    transition: all .1s ease-in-out;
 }
 .plugBox{
     flex-direction: column;
@@ -703,23 +708,88 @@ a{
     transition: all .1s ease-out;
     transform-origin: 40% 24.5%;
 }
+#strumHand{
+    transition: all .1s cubic-bezier(.1,1.1,.49,.95);
+    transform-origin: 10% 40%;
+}
 
-/*Playing animations*/
-
-@keyframes strumAlt{
+@keyframes fretSlide{
+    0%{
+        transform: translate(0, 0);
+    }50%{
+        transform: translate(-.5rem, .1rem);
+    }100%{
+        transform: translate(0, 0);
+    }
+}
+@keyframes fretFore{
     0%{
         transform: rotate(0deg);
     }50%{
-        transform: rotate(50deg);
+        transform: rotate(-5deg);
     }100%{
         transform: rotate(0deg);
     }
 }
-#strumHand{
-    animation: strumAlt .5s cubic-bezier(.1,1.1,.49,.95) infinite;
-    transform-origin: 10% 40%;
+@keyframes fretArm{
+    0%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(5deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes fingerLift{
+    0%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(-10deg);
+    }100%{
+        transform: rotate(0deg);
+    }
 }
 
+@keyframes rotoTest{
+    0%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(180deg);
+    }100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+#fretHand{
+    transition: all .1s cubic-bezier(.1,1.1,.49,.95);
+    animation: fretSlide 4s ease-in-out infinite;
+}
+#fretFore{
+    animation: fretFore 4s ease-in-out infinite;
+    transform-origin: 61.5% 53%;
+}
+#fretArm{
+    animation: fretArm 4s ease-in-out infinite;
+    transform-origin: 51% 30%;
+}
+#pointerFinger{
+    animation: fingerLift 2s ease-in-out infinite;
+    transform-origin: 51.5% 40.5%;
+}
+#middleFinger{
+    /* animation: rotoTest 2s linear infinite; */
+    transform-origin: 51.5% 40.5%;
+}
+#ringFinger{
+    /*animation: rotoTest 2s linear infinite;*/
+    transform-origin: 51.5% 40.5%;
+}
+#pinkieFinger{
+    /* animation: rotoTest 2s linear infinite; */
+    transform-origin: 51.5% 40.5%;
+}
 @media screen and (max-width: 767px){
     .logoAndText{
         display: flex;
