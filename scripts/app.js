@@ -82,13 +82,22 @@ function strum(){
 }  
 
 // HAND MOVEMENT PATTERNS
-var expTimes = [0, 215, 323, 645, 860, 968, 1290, 1505, 1613, 1935, 2150, 2258, 2580, 2795, 2903, 3225, 3400, 3508, 3870];
+var expTimes = [0, 215, 323, 645, 860, 968, 1290, 1505, 1613, 1935, 2150, 2258, 2580, 2795, 2903, 3225, 3400, 3508, 
+    3870, 4085, 4193, 4515, 4730, 4838, 5160, 5375, 5483, 5805, 6020, 6128, 6235, 6343, 6450, 6558, 6665, 6773, 6880, 
+    7095, 7203, 7535, 7740, 7848, 8170, 8385, 8493, 8815, 9030, 9138, 9460, 9675, 9783, 10105, 10320, 10428, 10750, 
+    10965, 11073, 11395, 11610, 11718, 12040, 12255, 12363, 12685, 12900, 13008, 13115, 13223, 
+    
+    13760, 13975, 14083, 14405, 14620, 14728, 15050, 15265, 15373, 15695, 15910, 16018, 16340, 16555, 16663, 16985, 
+    17160, 17268, 17630, 17845, 17953, 18275, 18490, 18598, 18920, 19135, 19243, 19565, 19780, 19888, 19995, 20103, 
+    20210, 20318, 20425, 20533, 20640, 20855, 20963, 21295, 21500, 21608, 21930, 22145, 22253, 22575, 22790, 22898, 23220, 23435,
+    23543, 23865, 24080, 24403, 24725, 25048, 25370, 25692, 26015, 26338, 26660, 26983];
 
 
 var expFretTimes = [0, 215, 645, 860, 1290, 1505, 1935, 2150, 2580, 2795, 3225, 3400, 3870];
 var expFretSwitch = [2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0];
 
 let strumTimeouts;
+let strumInterval;
 let fretTimeouts;
 let fretSwitchPattern;
 
@@ -102,15 +111,12 @@ function StrumPattern(strumArray){
             strumHand.style.transform = "rotate(50deg)";
         }
     }  
-    
+
     strumTimeouts = strumArray.map(delay =>  setTimeout(() => { 
             strum();
             //console.log("strum");
         }, delay));
     };
-
-
-
 
 
     function FretPattern(fretArray){
@@ -140,6 +146,7 @@ function StrumPattern(strumArray){
 
 function clearStrum(){
     strumTimeouts?.forEach(id => clearTimeout(id));
+    clearInterval(strumInterval);
 }
 
 function clearFrets(){
@@ -695,9 +702,11 @@ function ExpPlay(){
             bumper.classList.remove('funkBump'); 
             ExpPlayer.play();
             clickable = true;
-
-             StrumPattern(expTimes);
-             FretPattern(expFretTimes);
+            StrumPattern(expTimes);
+            strumInterval = setInterval(function(){
+                StrumPattern(expTimes);
+            }, 27450);
+                //FretPattern(expFretTimes);
             }, 215);
 
     } else if (ExpClicked == true){
