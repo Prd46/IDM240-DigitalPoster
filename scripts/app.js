@@ -70,9 +70,35 @@ var cycleCount = 0;
 function fret(){
 
 }
+
+function strum(){
+    if (strumHand.style.transform == "rotate(50deg)"){
+        strumHand.style.transform = "rotate(0deg)";
+    }else{
+        strumHand.style.transform = "rotate(50deg)";
+    }
+}  
+
 // SONG STRUMMING PATTERNS
 var expTimes = [0, 215, 323, 645, 860, 968, 1290, 1505, 1613, 1935, 2150, 2258, 2580, 2795, 2903, 3225, 3400, 3508, 3870];
-function expStrumPattern(strumArray){
+var times = [];
+let strumTimeouts;
+/*strumPatternRevised = setInterval(function(){
+    i < times.length; 
+            if (ExpClicked == true){
+            strum();
+                console.log("strum");
+                i++
+              }else{
+                console.log("stop");
+            i = 0;
+            };
+    console.log(i);   
+    }, expInts[i]);
+*/
+
+function StrumPattern(strumArray){
+    //const expTemp = [...expTimes];
 
     function strum(){
         if (strumHand.style.transform == "rotate(50deg)"){
@@ -80,18 +106,41 @@ function expStrumPattern(strumArray){
         }else{
             strumHand.style.transform = "rotate(50deg)";
         }
-    }    
-    strumArray.forEach(delay => { 
+    }  
+    
+    strumTimeouts = strumArray.map(delay =>  setTimeout(() => { 
+            strum();
+            //console.log("strum");
+        }, delay));
+    };
+
+
+function clearStrum(){
+    strumTimeouts?.forEach(id => clearTimeout(id));
+}
+
+
+
+/*
+for (let i = 0; i < times.length; i++) 
+{ 
         setTimeout(() => {
             if (ExpClicked == true){
             strum();
+            console.log("strum");
               }else{
+                console.log("stop");
+                times = [];
                 return;
               };
-        }, delay);
-    });
-}
-
+        }, times[i]);
+        
+            //break;
+        };
+    };
+*/
+//times = [...expTimes];
+// StrumPattern(times);
 
 var speaker = document.getElementById('Amp');
 var bumper
@@ -172,7 +221,7 @@ function FunkPlay(){
         setTimeout(() => {
             funkTimer = setInterval(function(){
                 cycleCount ++;
-                console.log(cycleCount);
+                //console.log(cycleCount);
                 
                 if (cycleCount == -1){
                     console.log('stopping animation');
@@ -234,7 +283,7 @@ function FunkPlay(){
     else if (FunkClicked == false){
         funkTimer = setInterval(function(){
             cycleCount ++;
-            console.log(cycleCount);
+            //console.log(cycleCount);
 
             if (cycleCount == -1){
                 console.log('stopping animation');
@@ -348,7 +397,7 @@ function MetalPlay(){
         setTimeout(() => {
             metalTimer = setInterval(function(){
                 cycleCount ++;
-                console.log(cycleCount);
+                //console.log(cycleCount);
     
                 if (cycleCount == -1){
                     console.log('stopping animation');
@@ -404,7 +453,7 @@ function MetalPlay(){
 
             metalTimer = setInterval(function(){
                 cycleCount ++;
-                console.log(cycleCount);
+                //console.log(cycleCount);
     
                 if (cycleCount == -1){
                     console.log('stopping animation');
@@ -512,7 +561,7 @@ function ExpPlay(){
         setTimeout(() => {
             expTimer = setInterval(function(){
                 cycleCount ++;
-                console.log(cycleCount);
+                //console.log(cycleCount);
     
                 if (cycleCount == -1){
                     console.log('stopping animation');
@@ -561,7 +610,8 @@ function ExpPlay(){
                 bumper.classList.remove('funkBump'); 
                ExpPlayer.play();
                clickable = true;
-            //    expStrumPattern(expTimes);
+               times = [...expTimes];
+                StrumPattern(expTimes);
                 }, 215);    
           }, 750);
 
@@ -569,7 +619,7 @@ function ExpPlay(){
 
             expTimer = setInterval(function(){
                 cycleCount ++;
-                console.log(cycleCount);
+                //console.log(cycleCount);
                 if (cycleCount == -1){
                 headSVG.classList.remove("aniHeadExp");
                 bodySVG.classList.remove('aniBodyExp');
@@ -618,7 +668,8 @@ function ExpPlay(){
             bumper.classList.remove('funkBump'); 
             ExpPlayer.play();
             clickable = true;
-            // expStrumPattern(expTimes);
+    
+             StrumPattern(expTimes);
             }, 215);
 
     } else if (ExpClicked == true){
@@ -632,6 +683,7 @@ function ExpPlay(){
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('expBump'); 
 
+        clearStrum();
 
         cycleCount = -2;
         setTimeout(() => {
