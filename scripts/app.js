@@ -49,6 +49,12 @@ Ani.addEventListener("load", function () {
     Hair = aniConDoc.getElementById('Hair');
     strumHand = aniConDoc.getElementById('strumHand');
     fretHand = aniConDoc.getElementById('fretHand');
+
+    pointer = aniConDoc.getElementById('pointerFinger');
+    middle = aniConDoc.getElementById('middleFinger');
+    ring = aniConDoc.getElementById('ringFinger');
+    pinkie = aniConDoc.getElementById('pinkieFinger');
+
     exposedEar = aniConDoc.getElementById('exposedEar');
     coveredEar = aniConDoc.getElementById('coveredEar');
 
@@ -67,10 +73,6 @@ var metalTimer;
 var expTimer;
 var cycleCount = 0; 
 
-function fret(){
-
-}
-
 function strum(){
     if (strumHand.style.transform == "rotate(50deg)"){
         strumHand.style.transform = "rotate(0deg)";
@@ -79,23 +81,16 @@ function strum(){
     }
 }  
 
-// SONG STRUMMING PATTERNS
+// HAND MOVEMENT PATTERNS
 var expTimes = [0, 215, 323, 645, 860, 968, 1290, 1505, 1613, 1935, 2150, 2258, 2580, 2795, 2903, 3225, 3400, 3508, 3870];
-var times = [];
+
+
+var expFretTimes = [0, 215, 645, 860, 1290, 1505, 1935, 2150, 2580, 2795, 3225, 3400, 3870];
+var expFretSwitch = [2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0];
+
 let strumTimeouts;
-/*strumPatternRevised = setInterval(function(){
-    i < times.length; 
-            if (ExpClicked == true){
-            strum();
-                console.log("strum");
-                i++
-              }else{
-                console.log("stop");
-            i = 0;
-            };
-    console.log(i);   
-    }, expInts[i]);
-*/
+let fretTimeouts;
+let fretSwitchPattern;
 
 function StrumPattern(strumArray){
     //const expTemp = [...expTimes];
@@ -115,9 +110,42 @@ function StrumPattern(strumArray){
     };
 
 
+
+
+
+    function FretPattern(fretArray){
+        //const expTemp = [...expTimes];
+    
+        function fret(switchArray){
+            fretSwitchPattern = switchArray.map  
+            /*
+                if (pointer.style.transform == "rotate(0deg)"){
+                    pointer.style.transform = "rotate(-20deg)";
+                }else{
+                    pointer.style.transform = "rotate(0deg)";
+                }*/
+                console.log("fret");
+                //console.log(fretSwitchPattern);
+            };
+ 
+
+        fretTimeouts = fretArray.map(delay =>  setTimeout(() => { 
+                fret(expFretSwitch);  
+                //console.log(delay);
+            }, delay));
+        };
+
+
+
+
 function clearStrum(){
     strumTimeouts?.forEach(id => clearTimeout(id));
 }
+
+function clearFrets(){
+    fretTimeouts?.forEach(id => clearTimeout(id));
+}
+
 
 
 
@@ -610,7 +638,6 @@ function ExpPlay(){
                 bumper.classList.remove('funkBump'); 
                ExpPlayer.play();
                clickable = true;
-               times = [...expTimes];
                 StrumPattern(expTimes);
                 }, 215);    
           }, 750);
@@ -668,8 +695,9 @@ function ExpPlay(){
             bumper.classList.remove('funkBump'); 
             ExpPlayer.play();
             clickable = true;
-    
+
              StrumPattern(expTimes);
+             FretPattern(expFretTimes);
             }, 215);
 
     } else if (ExpClicked == true){

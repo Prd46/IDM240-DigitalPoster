@@ -744,11 +744,22 @@ a{
     0%{
         transform: rotate(0deg);
     }50%{
-        transform: rotate(-10deg);
+        transform: rotate(-30deg);
     }100%{
         transform: rotate(0deg);
     }
 }
+
+@keyframes tipBend{
+    0%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(30deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+
 
 @keyframes rotoTest{
     0%{
@@ -764,32 +775,73 @@ a{
 
 #fretHand{
     transition: all .1s cubic-bezier(.1,1.1,.49,.95);
-    animation: fretSlide 4s ease-in-out infinite;
+    transition: all .25s ease-out;
+    /* animation: fretSlide 4s ease-in-out infinite; */
 }
 #fretFore{
-    animation: fretFore 4s ease-in-out infinite;
+    /* animation: fretFore 4s ease-in-out infinite; */
     transform-origin: 61.5% 53%;
+    transition: all .25s ease-out;
 }
 #fretArm{
-    animation: fretArm 4s ease-in-out infinite;
+    /* animation: fretArm 4s ease-in-out infinite; */
     transform-origin: 51% 30%;
+    transition: all .25s ease-out;
 }
+
+
 #pointerFinger{
-    animation: fingerLift 2s ease-in-out infinite;
+    /* animation: fingerLift .5s ease-in-out infinite; */
     transform-origin: 51.5% 40.5%;
+    transition: all .1s ease-out;
 }
+#secondSegmentPointer{
+    /* animation: tipBend 2s ease-in-out infinite;  */
+    transform: rotate(20deg);
+    transform-origin: 48.5% 35%;
+    transition: all .05s ease-out;
+}
+
+
 #middleFinger{
-    /* animation: rotoTest 2s linear infinite; */
-    transform-origin: 51.5% 40.5%;
+    /* animation: fingerLift .5s .25s ease-in-out infinite; */
+    transform-origin: 49% 41%;
+    transition: all .1s ease-out;
 }
+#secondSegmentMiddle{
+    /* animation: tipBend 2s linear infinite;  */
+    transform: rotate(20deg);
+    transform-origin: 46.6% 35.3%;
+    transition: all .05s ease-out;
+}
+
+
 #ringFinger{
-    /*animation: rotoTest 2s linear infinite;*/
-    transform-origin: 51.5% 40.5%;
+    /* animation: fingerLift .5s .5s ease-in-out infinite; */
+    transform-origin: 46.5% 41.2%;
+    transition: all .1s ease-out;
 }
+#secondSegmentRing{
+    /* animation: tipBend .2s linear infinite;  */
+    transform: rotate(20deg);
+    transform-origin: 43.8% 35.6%;
+    transition: all .05s ease-out;
+}
+
+
 #pinkieFinger{
-    /* animation: rotoTest 2s linear infinite; */
-    transform-origin: 51.5% 40.5%;
+    /* animation: fingerLift 2s .75s ease-in-out infinite; */
+    transform-origin: 44% 41.5%;
+    transition: all .1s ease-out;
 }
+#secondSegmentPinkie{
+    /* animation: tipBend 2s linear infinite;  */
+    transform: rotate(20deg);
+    transform-origin: 41.9% 36.1%;
+    transition: all .05s ease-out;
+}
+
+
 @media screen and (max-width: 767px){
     .logoAndText{
         display: flex;

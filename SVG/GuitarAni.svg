@@ -602,7 +602,7 @@
       <g id="fretHand">
         <polygon id="handPath" class="cls-25" points="428.01 330.41 419.08 342.01 410.43 347.17 394.91 345.17 385.67 350.99 371.42 348.92 359.58 353.49 347.49 351.24 330.32 336.65 408.2 321.15 426.93 317.58 428.01 330.41"/>
         <g id="pinkieFinger">
-          <polyline id="secondSegmentPointer" class="cls-39" points="320.39 300.27 335.86 279.15 346.96 281.29 351.82 289.49 335.89 311.09"/>
+          <polyline id="secondSegmentPinkie" class="cls-39" points="320.39 300.27 335.86 279.15 346.96 281.29 351.82 289.49 335.89 311.09"/>
           <g id="firstSegmentPointer">
             <polygon class="cls-56" points="346.29 342.39 338.57 297.79 320.13 300.41 338.48 343.28 346.29 342.39"/>
             <path class="cls-25" d="m338.85,343.67l-.24.05-13.46-10.66-4.87-32.78"/>
@@ -610,7 +610,7 @@
           </g>
         </g>
         <g id="ringFinger">
-          <polyline id="secondSegmentPointer-2" data-name="secondSegmentPointer" class="cls-39" points="338.06 294.49 363.05 281.86 372.59 289.28 373.25 299.45 347.59 312.32"/>
+          <polyline id="secondSegmentRing" data-name="secondSegmentPointer" class="cls-39" points="338.06 294.49 363.05 281.86 372.59 289.28 373.25 299.45 347.59 312.32"/>
           <g id="firstSegmentPointer-2" data-name="firstSegmentPointer">
             <polygon class="cls-56" points="365.98 339.96 357.39 292.32 337.69 295.26 357.63 340.97 365.98 339.96"/>
             <path class="cls-25" d="m358.04,341.39l-.25.05-14.47-11.3-5.46-35.02"/>
@@ -618,7 +618,7 @@
           </g>
         </g>
         <g id="middleFinger">
-          <polyline id="secondSegmentPointer-3" data-name="secondSegmentPointer" class="cls-39" points="351.27 295.09 356.85 266.04 369.22 262.86 378.15 268.88 372.32 298.65"/>
+          <polyline id="secondSegmentMiddle" data-name="secondSegmentPointer" class="cls-39" points="351.27 295.09 356.85 266.04 369.22 262.86 378.15 268.88 372.32 298.65"/>
           <g id="firstSegmentPointer-3" data-name="firstSegmentPointer">
             <polygon class="cls-56" points="387.17 338.31 371.34 289.67 351.14 295.57 378.57 340.56 387.17 338.31"/>
             <path class="cls-25" d="m379.06,340.94l-.26.09-16.77-9.75-10.74-35.87"/>
@@ -626,7 +626,7 @@
           </g>
         </g>
         <g id="pointerFinger">
-          <polyline id="secondSegmentPointer-4" data-name="secondSegmentPointer" class="cls-39" points="386.05 285.39 413.63 274.23 423.07 282.94 422.87 293.76 394.55 305.11"/>
+          <polyline id="secondSegmentPointer" data-name="secondSegmentPointer" class="cls-39" points="386.05 285.39 413.63 274.23 423.07 282.94 422.87 293.76 394.55 305.11"/>
           <g id="firstSegmentPointer-4" data-name="firstSegmentPointer">
             <polygon class="cls-56" points="404.73 339.26 407.04 287.87 385.93 286.28 395.84 338.34 404.73 339.26"/>
             <path class="cls-25" d="m396.16,338.87h-.28s-12.34-15.12-12.34-15.12l2.58-37.57"/>
