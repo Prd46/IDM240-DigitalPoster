@@ -95,7 +95,7 @@ var expStrumTimes = [0, 215, 323, 645, 860, 968, 1290, 1505, 1613, 1935, 2150, 2
 var expFretTimes = [0, 215, 645, 860, 1290, 1505, 1935, 2150, 2580, 2795, 3225, 3400, 3870, 4085, 4515, 4730, 5160,
 5375, 5805, 6020, 6880, 7095, 7535, 7740, 8170, 8385, 8815, 9030, 9460, 9675, 10105, 10320, 10750, 10965, 11395, 
 11610, 12040, 12255, 12685, 12900, 13330, 13760, 13975, 14405, 14620, 15050, 15265, 15695, 15910, 16340, 16555, 
-16985, 17160, 17630, 17845, 18275, 18490, 18920, 19135, 19565, 19780, 20640, 20855, 21295, 21500, 21930, 21930, 22145, 
+16985, 17160, 17630, 17845, 18275, 18490, 18920, 19135, 19565, 19780, 20640, 20855, 21295, 21500, 21930, 22145, 
 22575, 22790, 23220, 23435, 23865, 24080, 26983];
 
 var expFretSwitch = [2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 12, 1, 12, 1, 12, 1, 12, 1, 12, 23, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0,
@@ -112,14 +112,33 @@ var metalStrumTimes = [0, 240, 600, 720, 960, 1320, 1680, 2040, 2400, 2640, 3000
 
 15360, 23040, 24960, 26880, 28800];
 
-var metalFretTimes = [0, 960, 1020, 1080, 1140, 12200, 1260, 1320, 1380, 1440, 1500, 1560, 1620, 1680, 1740, 
-    1800, 1860, 1920, 1980, 2040, 2400, 2640, 2760, 3360, 
+var metalFretTimes = [0, 960, 1020, 1080, 1140, 1200, 1260, 1320, 1380, 1440, 1500, 1560, 1620, 1680, 1740, 
+    1800, 1860, 1920, 1980, 2040, 2400, 2640, 2760, 3360, 3720, 3840, 3960, 4020, 4080, 4200, 4320, 4440, 4560, 4680, 
+    5520, 5760, 6000, 6480, 6720, 7200, 7680, 7920, 9240, 9480, 9600, 10080, 10320, 10800, 11040, 11280, 11520, 11760, 
+    13080, 
 
 
-    15360, 15440, 15520, 15600, 15680, 15760, 15840, 15920, 16000, 16080, 16160, 16240,
+    15360, 15440, 15520, 15600, 15680, 15760, 15840, 15920, 16000, 16080, 16160, 16240, 16320, 16400, 16480, 16560, 
+    16640, 16720, 16800, 16880, 16960, 17040, 17120, 17200, 17280, 17360, 17440, 17520, 17600, 17680, 17760, 17840, 
+    17920, 18000, 18080, 18160, 18240, 18320, 18400, 18480, 18560, 18640, 18720, 18800, 18880, 18960, 19040, 19120, 
+    19200, 19280, 19360, 19440, 19520, 19600, 19680, 19760, 19840, 19920, 20000, 20080, 20160, 20240, 20320, 20400, 
+    20480, 20560, 20640, 20720, 20800, 20880, 20960, 21040, 21120, 21200, 21280, 21360, 21440, 21520, 21600, 21680, 
+    21760, 21850, 21920, 22000, 22080, 22160, 22240, 22320, 22400, 22480, 22560, 22640, 22720, 22800, 22880, 22960, 
+
+    23040, 23160, 23280, 23400, 23520, 23640, 23760, 23880, 24000, 24120, 24240, 24360, 24480, 24600, 24720, 24840, 24960, 25080, 
+    25200, 25320, 25440, 25560, 25680, 25800, 25920, 26040, 26160, 26280, 26400, 26520, 26640, 26760, 26880, 27000, 
+    27120, 27240, 27360, 27480, 27600, 27720, 27840, 27960, 28080, 28200, 28320, 28440, 28560, 28680, 28800, 28920, 
+    29040, 29160, 29280, 29400, 29520, 29640, 29760, 29880, 30000, 30120, 30240
 ];
 
-var metalFretSwitch = [34, 3, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2, 1, 2, 4, 2, 4, 0,];
+var metalFretSwitch = [34, 3, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2, 1, 2, 4, 2, 4, 0, 2, 0, 2, 0, 2, 1, 
+    0, 3, 2, 1, 2, 1, 0, 4, 1, 13, 12, 2, 34, 0, 2, 12, 2, 12, 2, 12, 2, 34, 134, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 
+    14, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 
+    13, 1, 13, 1, 13, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 
+    14, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 
+    12, 1, 12, 1, 12, 1, 
+2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4, 1, 3, 4, 1, 3, 4, 1, 3, 4, 1, 3, 4, 1, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4, 
+2, 3, 4, 2, 3, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4,];
 
 
 
@@ -127,7 +146,9 @@ var funkStrumTimes = [0, 354, 708, 944, 1298, 1652, 2478, 2832, 3540, 3894, 4602
 6372, 6726, 7434, 7788, 8142, 8496, 9558, 10620, 10974, 11328, 12390, 13688, 13924, 14160, 15222, 16638, 16992, 17582, 
 18054, 18408, 19470, 19824, 20178, 20532, 20886, 21594, 21712, 21830];
 
-var funkFretTimes = [];
+var funkFretTimes = [0, 354, 472, 590, 944, 1062, 1298, 1652, 2596, 2714, 2832, 3658, 3776, 3894, 4602, 5192, 5428, 
+5664, 6018, 6726, 7552, 7670, 7788, 8496, 9558, 10620, 10738, 10856, 10974, 11092, 11210, 11328, 12390, 13688, 13924, 
+14160, 15222, 16756, 16874, 16992, 17582, 18408, 19470, 19824, 20178, 20296, 20414, 20532, 20886, ];
 
 var funkFretSwitch = [];
 
@@ -154,26 +175,26 @@ function StrumPattern(strumArray){
         }, delay));
     };
 
+// StrumPattern(expStrumTimes);
 
-    function FretPattern(fretArray){
+
+function FretPattern(fretArray){
         //const expTemp = [...expTimes];
     
-        function fret(switchArray){
-            fretSwitchPattern = switchArray.map  
-            /*
+        function fret(){
                 if (pointer.style.transform == "rotate(0deg)"){
                     pointer.style.transform = "rotate(-20deg)";
                 }else{
                     pointer.style.transform = "rotate(0deg)";
-                }*/
-                console.log("fret");
+                }
+                //console.log("fret");
                 //console.log(fretSwitchPattern);
             };
  
 
         fretTimeouts = fretArray.map(delay =>  setTimeout(() => { 
                 fret(expFretSwitch);  
-                //console.log(delay);
+                console.log(delay);
             }, delay));
         };
 
@@ -274,6 +295,7 @@ function FunkPlay(){
     if ((MetalClicked == true) || (ExpClicked == true)){
 
         clearStrum();
+        clearFrets();
         MetalPlug.classList.remove("pluggedIn");
         ExpPlug.classList.remove("pluggedIn");
         ExpClicked = false;
@@ -423,7 +445,7 @@ function FunkPlay(){
         
 
     } else if (FunkClicked == true){
-
+        clearFrets();
         clearStrum();
         FunkPlug.classList.remove("pluggedIn");
         FunkPlayer.pause();
@@ -460,6 +482,7 @@ function MetalPlay(){
     if (clickable == true){
         clickable = false;
     if ((FunkClicked == true) || (ExpClicked == true)){
+        clearFrets();
         clearStrum();
         FunkPlug.classList.remove("pluggedIn");
         ExpPlug.classList.remove("pluggedIn");
@@ -532,8 +555,10 @@ function MetalPlay(){
                clickable = true;
 
                StrumPattern(metalStrumTimes);
+               FretPattern(metalFretTimes);
            strumInterval = setInterval(function(){
                StrumPattern(metalStrumTimes);
+               FretPattern(metalFretTimes);
            }, 30696);
 
                 }, 240);    
@@ -593,8 +618,10 @@ function MetalPlay(){
            clickable = true;
 
            StrumPattern(metalStrumTimes);
+           FretPattern(metalFretTimes);
            strumInterval = setInterval(function(){
                StrumPattern(metalStrumTimes);
+               FretPattern(metalFretTimes);
            }, 30696);
             }, 240);
 
@@ -609,7 +636,7 @@ function MetalPlay(){
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('metalBump'); 
         cycleCount = -2;
-
+        clearFrets();
         clearStrum();
 
         setTimeout(() => {
@@ -637,6 +664,7 @@ function ExpPlay(){
     if (clickable == true){
         clickable = false;
     if ((FunkClicked == true) || (MetalClicked == true)){
+        clearFrets();
         clearStrum();
 
         FunkPlug.classList.remove("pluggedIn");
@@ -712,10 +740,12 @@ function ExpPlay(){
                clickable = true;
 
                StrumPattern(expStrumTimes);
+               FretPattern(expFretTimes);
+
                strumInterval = setInterval(function(){
+                FretPattern(expFretTimes);
                    StrumPattern(expStrumTimes);
                }, 27450);
-
                 }, 215);    
           }, 750);
 
@@ -772,9 +802,13 @@ function ExpPlay(){
             bumper.classList.remove('funkBump'); 
             ExpPlayer.play();
             clickable = true;
+
+            FretPattern(expFretTimes);
             StrumPattern(expStrumTimes);
+
             strumInterval = setInterval(function(){
                 StrumPattern(expStrumTimes);
+                FretPattern(expFretTimes);
             }, 27450);
                 //FretPattern(expFretTimes);
             }, 215);
@@ -789,7 +823,7 @@ function ExpPlay(){
         ExpClicked = false;
         controlText.innerHTML = "Now playing:";
         bumper.classList.remove('expBump'); 
-
+        clearFrets();
         clearStrum();
 
         cycleCount = -2;
