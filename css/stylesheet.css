@@ -236,6 +236,18 @@ a{
 #FunkPlugDiv{
     z-index: 15;
 }
+.copyright{
+    position: fixed;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: flex-end;
+    text-shadow: 2px 2px 2px white;
+    z-index: 5
+}
+.plugClass{
+    z-index: 10;
+}
 @media screen and (max-width: 1279px){
     body{
         width: 768px;

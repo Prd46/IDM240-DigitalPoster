@@ -186,7 +186,7 @@ function FretPattern(fretArray){
             //var tempFretSelections = [0, 1, 2, 3, 4, 12, 13, 14, 23, 24, 34, 123, 124, 134, 234];
             //const randomPick = tempFretSelections[Math.floor(Math.random() * tempFretSelections.length)];
             let randomPick = fretSwitchPattern[arrayNumber];
-            console.log(fretSwitchPattern[arrayNumber]);
+            //console.log(fretSwitchPattern[arrayNumber]);
                 if (randomPick == 1){
                     pointer.style.transform = "rotate(0deg)";
                     middle.style.transform = "rotate(-20deg)";
