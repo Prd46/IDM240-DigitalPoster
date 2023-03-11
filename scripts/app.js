@@ -160,7 +160,6 @@ let fretSwitchPattern;
 
 function StrumPattern(strumArray){
     //const expTemp = [...expTimes];
-
     function strum(){
         if (strumHand.style.transform == "rotate(50deg)"){
             strumHand.style.transform = "rotate(0deg)";
@@ -182,19 +181,92 @@ function FretPattern(fretArray){
         //const expTemp = [...expTimes];
     
         function fret(){
-                if (pointer.style.transform == "rotate(0deg)"){
-                    pointer.style.transform = "rotate(-20deg)";
-                }else{
+            var tempFretSelections = [0, 1, 2, 3, 4, 12, 13, 14, 23, 24, 34, 123, 124, 134, 234];
+            const randomPick = tempFretSelections[Math.floor(Math.random() * tempFretSelections.length)];
+
+                if (randomPick == 1){
                     pointer.style.transform = "rotate(0deg)";
-                }
+                    middle.style.transform = "rotate(-20deg)";
+                    ring.style.transform = "rotate(-20deg)";
+                    pinkie.style.transform = "rotate(-20deg)";
+                }else if (randomPick == 2){
+                    pointer.style.transform = "rotate(-20deg)";
+                    middle.style.transform = "rotate(0deg)";
+                    ring.style.transform = "rotate(-20deg)";
+                    pinkie.style.transform = "rotate(-20deg)";
+                }else if (randomPick == 3){
+                    pointer.style.transform = "rotate(-20deg)";
+                    middle.style.transform = "rotate(-20deg)";
+                    ring.style.transform = "rotate(0deg)";
+                    pinkie.style.transform = "rotate(-20deg)";
+                }else if (randomPick == 4){
+                    pointer.style.transform = "rotate(-20deg)";
+                    middle.style.transform = "rotate(-20deg)";
+                    ring.style.transform = "rotate(-20deg)";
+                    pinkie.style.transform = "rotate(0deg)";
+                }else if (randomPick == 12){
+                    pointer.style.transform = "rotate(0deg)";
+                    middle.style.transform = "rotate(0deg)";
+                    ring.style.transform = "rotate(-20deg)";
+                    pinkie.style.transform = "rotate(-20deg)";
+                }else if (randomPick == 13){
+                    pointer.style.transform = "rotate(0deg)";
+                    middle.style.transform = "rotate(-20deg)";
+                    ring.style.transform = "rotate(0deg)";
+                    pinkie.style.transform = "rotate(-20deg)";
+                }else if (randomPick == 14){
+                    pointer.style.transform = "rotate(0deg)";
+                    middle.style.transform = "rotate(-20deg)";
+                    ring.style.transform = "rotate(-20deg)";
+                    pinkie.style.transform = "rotate(0deg)";
+                }else if (randomPick == 23){
+                    pointer.style.transform = "rotate(-20deg)";
+                    middle.style.transform = "rotate(0deg)";
+                    ring.style.transform = "rotate(0deg)";
+                    pinkie.style.transform = "rotate(-20deg)";
+                }else if (randomPick == 24){
+                    pointer.style.transform = "rotate(-20deg)";
+                    middle.style.transform = "rotate(0deg)";
+                    ring.style.transform = "rotate(-20deg)";
+                    pinkie.style.transform = "rotate(0deg)";
+                }else if (randomPick == 34){
+                    pointer.style.transform = "rotate(-20deg)";
+                    middle.style.transform = "rotate(-20deg)";
+                    ring.style.transform = "rotate(0deg)";
+                    pinkie.style.transform = "rotate(0deg)";
+                }else if (randomPick == 123){
+                    pointer.style.transform = "rotate(0deg)";
+                    middle.style.transform = "rotate(0deg)";
+                    ring.style.transform = "rotate(0deg)";
+                    pinkie.style.transform = "rotate(-20deg)";
+                }else if (randomPick == 124){
+                    pointer.style.transform = "rotate(0deg)";
+                    middle.style.transform = "rotate(0deg)";
+                    ring.style.transform = "rotate(-20deg)";
+                    pinkie.style.transform = "rotate(0deg)";
+                }else if (randomPick == 134){
+                    pointer.style.transform = "rotate(0deg)";
+                    middle.style.transform = "rotate(-20deg)";
+                    ring.style.transform = "rotate(0deg)";
+                    pinkie.style.transform = "rotate(0deg)";
+                }else if (randomPick == 234){
+                    pointer.style.transform = "rotate(-20deg)";
+                    middle.style.transform = "rotate(0deg)";
+                    ring.style.transform = "rotate(0deg)";
+                    pinkie.style.transform = "rotate(0deg)";
+                }else{
+                    pointer.style.transform = "rotate(-20deg)";
+                    middle.style.transform = "rotate(-20deg)";
+                    ring.style.transform = "rotate(-20deg)";
+                    pinkie.style.transform = "rotate(-20deg)";
                 //console.log("fret");
                 //console.log(fretSwitchPattern);
             };
- 
+        };
 
         fretTimeouts = fretArray.map(delay =>  setTimeout(() => { 
                 fret(expFretSwitch);  
-                console.log(delay);
+                //console.log(delay);
             }, delay));
         };
 
@@ -371,8 +443,10 @@ function FunkPlay(){
             bumper.classList.add('funkBump'); 
             FunkPlayer.play();
             StrumPattern(funkStrumTimes);
+            FretPattern(funkFretTimes);
             strumInterval = setInterval(function(){
                 StrumPattern(funkStrumTimes);
+                FretPattern(funkFretTimes);
             }, 22581);
             clickable = true;
             }, 300);  
@@ -438,7 +512,9 @@ function FunkPlay(){
         FunkPlayer.play();
         clickable = true;
         StrumPattern(funkStrumTimes);
+        FretPattern(funkFretTimes);
         strumInterval = setInterval(function(){
+            FretPattern(funkFretTimes);
             StrumPattern(funkStrumTimes);
         }, 22581);
         }, 300);
