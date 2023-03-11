@@ -115,7 +115,7 @@ section{
     transition: all .1s ease-out;
 }
 .funkBump{
-    animation: musicPulse .7083s .7083s infinite;
+    animation: musicPulse .708s .708s infinite;
     transition: all .1s ease-out;
 }
 .metalBump{
