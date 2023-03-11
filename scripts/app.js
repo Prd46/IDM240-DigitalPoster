@@ -114,7 +114,7 @@ var metalStrumTimes = [0, 240, 600, 720, 960, 1320, 1680, 2040, 2400, 2640, 3000
 
 var metalFretTimes = [0, 960, 1020, 1080, 1140, 1200, 1260, 1320, 1380, 1440, 1500, 1560, 1620, 1680, 1740, 
     1800, 1860, 1920, 1980, 2040, 2400, 2640, 2760, 3360, 3720, 3840, 3960, 4020, 4080, 4200, 4320, 4440, 4560, 4680, 
-    5520, 5760, 6000, 6480, 6720, 7200, 7680, 7920, 9240, 9480, 9600, 10080, 10320, 10800, 11040, 11280, 11520, 11760, 
+    5520, 5760, 6000, 6480, 6720, 7200, 7680, 7920, 9240, 9480, 9600, 10080, 10320, 10800, 11040, 11280, 11760, 
     13080, 
 
 
@@ -131,14 +131,14 @@ var metalFretTimes = [0, 960, 1020, 1080, 1140, 1200, 1260, 1320, 1380, 1440, 15
     29040, 29160, 29280, 29400, 29520, 29640, 29760, 29880, 30000, 30120, 30240
 ];
 
-var metalFretSwitch = [34, 3, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2, 1, 2, 4, 2, 4, 0, 2, 0, 2, 0, 2, 1, 
+var metalFretSwitch = [34, 3, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2, 1, 4, 2, 4, 2, 0, 2, 0, 2, 1, 
     0, 3, 2, 1, 2, 1, 0, 4, 1, 13, 12, 2, 34, 0, 2, 12, 2, 12, 2, 12, 2, 34, 134, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 
     14, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 
     13, 1, 13, 1, 13, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 
     14, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 
     12, 1, 12, 1, 12, 1, 
 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4, 1, 3, 4, 1, 3, 4, 1, 3, 4, 1, 3, 4, 1, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4, 
-2, 3, 4, 2, 3, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4,];
+2, 3, 4, 2, 3, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4, 1, 2, 4, 0];
 
 
 
@@ -150,13 +150,15 @@ var funkFretTimes = [0, 354, 472, 590, 944, 1062, 1298, 1652, 2596, 2714, 2832, 
 5664, 6018, 6726, 7552, 7670, 7788, 8496, 9558, 10620, 10738, 10856, 10974, 11092, 11210, 11328, 12390, 13688, 13924, 
 14160, 15222, 16756, 16874, 16992, 17582, 18408, 19470, 19824, 20178, 20296, 20414, 20532, 20886, ];
 
-var funkFretSwitch = [];
+var funkFretSwitch = [234, 1, 2, 3, 2, 1, 4, 2, 4, 2, 1, 2, 1, 0, 1, 2, 3, 4, 1, 2, 3, 2, 1, 4, 2, 
+0, 1, 2, 3, 2, 3, 4, 2, 3, 4, 1, 0, 2, 0, 3, 0, 4, 2, 3, 2, 3, 2, 0, 2];
 
 
 let strumTimeouts;
 let strumInterval;
 let fretTimeouts;
 let fretSwitchPattern;
+let arrayNumber = 0;
 
 function StrumPattern(strumArray){
     //const expTemp = [...expTimes];
@@ -181,9 +183,10 @@ function FretPattern(fretArray){
         //const expTemp = [...expTimes];
     
         function fret(){
-            var tempFretSelections = [0, 1, 2, 3, 4, 12, 13, 14, 23, 24, 34, 123, 124, 134, 234];
-            const randomPick = tempFretSelections[Math.floor(Math.random() * tempFretSelections.length)];
-
+            //var tempFretSelections = [0, 1, 2, 3, 4, 12, 13, 14, 23, 24, 34, 123, 124, 134, 234];
+            //const randomPick = tempFretSelections[Math.floor(Math.random() * tempFretSelections.length)];
+            let randomPick = fretSwitchPattern[arrayNumber];
+            console.log(fretSwitchPattern[arrayNumber]);
                 if (randomPick == 1){
                     pointer.style.transform = "rotate(0deg)";
                     middle.style.transform = "rotate(-20deg)";
@@ -261,6 +264,12 @@ function FretPattern(fretArray){
                     pinkie.style.transform = "rotate(-20deg)";
                 //console.log("fret");
                 //console.log(fretSwitchPattern);
+
+            };
+            arrayNumber++;
+            //console.log (arrayNumber);
+            if (arrayNumber == fretSwitchPattern.length){
+                arrayNumber = 0;
             };
         };
 
@@ -283,29 +292,6 @@ function clearFrets(){
 }
 
 
-
-
-/*
-for (let i = 0; i < times.length; i++) 
-{ 
-        setTimeout(() => {
-            if (ExpClicked == true){
-            strum();
-            console.log("strum");
-              }else{
-                console.log("stop");
-                times = [];
-                return;
-              };
-        }, times[i]);
-        
-            //break;
-        };
-    };
-*/
-//times = [...expTimes];
-// StrumPattern(times);
-
 var speaker = document.getElementById('Amp');
 var bumper
 speaker.addEventListener("load", function () {
@@ -322,8 +308,6 @@ var MetalButtonObj
 var ExpButton = document.getElementById('ExperimentalImage');
 var ExpButtonObj
 var controlText = document.querySelector('.controlTextOutput');
-
-
 
 
 
@@ -368,6 +352,8 @@ function FunkPlay(){
 
         clearStrum();
         clearFrets();
+        arrayNumber = 0;
+
         MetalPlug.classList.remove("pluggedIn");
         ExpPlug.classList.remove("pluggedIn");
         ExpClicked = false;
@@ -442,6 +428,7 @@ function FunkPlay(){
             bumper.classList.remove('metalBump'); 
             bumper.classList.add('funkBump'); 
             FunkPlayer.play();
+            fretSwitchPattern = funkFretSwitch;
             StrumPattern(funkStrumTimes);
             FretPattern(funkFretTimes);
             strumInterval = setInterval(function(){
@@ -511,6 +498,7 @@ function FunkPlay(){
         bumper.classList.add('funkBump'); 
         FunkPlayer.play();
         clickable = true;
+        fretSwitchPattern = funkFretSwitch;
         StrumPattern(funkStrumTimes);
         FretPattern(funkFretTimes);
         strumInterval = setInterval(function(){
@@ -523,6 +511,7 @@ function FunkPlay(){
     } else if (FunkClicked == true){
         clearFrets();
         clearStrum();
+        arrayNumber = 0;
         FunkPlug.classList.remove("pluggedIn");
         FunkPlayer.pause();
         MetalPlayer.currentTime = 0;
@@ -560,6 +549,7 @@ function MetalPlay(){
     if ((FunkClicked == true) || (ExpClicked == true)){
         clearFrets();
         clearStrum();
+        arrayNumber = 0;
         FunkPlug.classList.remove("pluggedIn");
         ExpPlug.classList.remove("pluggedIn");
         FunkClicked = false;
@@ -629,7 +619,7 @@ function MetalPlay(){
                 bumper.classList.remove('funkBump'); 
                MetalPlayer.play();
                clickable = true;
-
+               fretSwitchPattern = metalFretSwitch;
                StrumPattern(metalStrumTimes);
                FretPattern(metalFretTimes);
            strumInterval = setInterval(function(){
@@ -692,7 +682,7 @@ function MetalPlay(){
             bumper.classList.remove('funkBump'); 
            MetalPlayer.play();
            clickable = true;
-
+           fretSwitchPattern = metalFretSwitch;
            StrumPattern(metalStrumTimes);
            FretPattern(metalFretTimes);
            strumInterval = setInterval(function(){
@@ -714,6 +704,7 @@ function MetalPlay(){
         cycleCount = -2;
         clearFrets();
         clearStrum();
+        arrayNumber = 0;
 
         setTimeout(() => {
             clickable = true;
@@ -742,6 +733,7 @@ function ExpPlay(){
     if ((FunkClicked == true) || (MetalClicked == true)){
         clearFrets();
         clearStrum();
+        arrayNumber = 0;
 
         FunkPlug.classList.remove("pluggedIn");
         MetalPlug.classList.remove("pluggedIn");
@@ -814,7 +806,7 @@ function ExpPlay(){
                 bumper.classList.remove('funkBump'); 
                ExpPlayer.play();
                clickable = true;
-
+               fretSwitchPattern = expFretSwitch;
                StrumPattern(expStrumTimes);
                FretPattern(expFretTimes);
 
@@ -878,7 +870,7 @@ function ExpPlay(){
             bumper.classList.remove('funkBump'); 
             ExpPlayer.play();
             clickable = true;
-
+            fretSwitchPattern = expFretSwitch;
             FretPattern(expFretTimes);
             StrumPattern(expStrumTimes);
 
@@ -901,6 +893,7 @@ function ExpPlay(){
         bumper.classList.remove('expBump'); 
         clearFrets();
         clearStrum();
+        arrayNumber = 0;
 
         cycleCount = -2;
         setTimeout(() => {
