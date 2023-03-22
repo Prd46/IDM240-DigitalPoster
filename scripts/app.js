@@ -183,8 +183,6 @@ function FretPattern(fretArray){
         //const expTemp = [...expTimes];
     
         function fret(){
-            //var tempFretSelections = [0, 1, 2, 3, 4, 12, 13, 14, 23, 24, 34, 123, 124, 134, 234];
-            //const randomPick = tempFretSelections[Math.floor(Math.random() * tempFretSelections.length)];
             let randomPick = fretSwitchPattern[arrayNumber];
             //console.log(fretSwitchPattern[arrayNumber]);
                 if (randomPick == 1){

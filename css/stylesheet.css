@@ -14,7 +14,7 @@ body{
     overflow-x: hidden;
 } 
 .bodyContainer{
-    margin: 0 auto;
+    margin: 5rem auto;
     width: 1280px;
     height: 900px;
     padding: 1rem;
@@ -177,7 +177,7 @@ a{
     text-align: left;
 }
 #Ani{
-    top: 3rem;
+    top: 4rem;
     position: absolute;
     width: 850px;
     height: 850px;
@@ -237,9 +237,9 @@ a{
     z-index: 15;
 }
 .copyright{
-    position: fixed;
+    position: absolute;
+    top: -.5rem;
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: flex-end;
     text-shadow: 2px 2px 2px white;
@@ -886,6 +886,7 @@ a{
     }
     body{
         width: 95%;
+        margin: 1rem;
         padding: 0;
     }
     .bodyContainer{
